@@ -25,7 +25,7 @@ jobs:
         distribution: 'temurin'
 
     #https://github.com/marketplace/actions/setup-maven
-    -name: Setup Maven
+    - name: Setup Maven
       uses: stCarolas/setup-maven@v4.3
       with:
         maven-version: 3.8.2
