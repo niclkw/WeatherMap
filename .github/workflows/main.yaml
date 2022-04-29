@@ -1,5 +1,5 @@
 name: My First Workflow
-on: 
+on:
   push:
     branches:
     - "release"
