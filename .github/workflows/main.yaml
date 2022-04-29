@@ -1,8 +1,8 @@
 name: My First Workflow
 on:
   push:
-    #branches:
-    #- "deploy"
+    branches:
+    - "release"
 jobs:
   echo_the_date:
     runs-on: ubuntu-latest
@@ -36,3 +36,12 @@ jobs:
 
     - name: Run test
       run: mvn clean test
+
+    #https://github.com/marketplace/actions/deploy-to-heroku
+    - name: Deploy to Heroku
+      uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.heroku_app_name}}
+          heroku_email: ${{secrets.email}}
+          branch: ${{github.ref-name}}
